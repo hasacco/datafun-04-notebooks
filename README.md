@@ -188,3 +188,11 @@ Remove unnecessary instructional comments in your final version of this README.m
 ![Provide a Useful Caption](./docs/images/Figure_2.png)
 
 ![Provide a Useful Caption](./docs/images/Figure_3.png)
+
+## Technical Modification 6-8-26
+
+A box plot of flipper length vs sex was added to notebook eda_hasacco.ipynb and app_hasacco.py.
+Box plot was saved in docs/ as Figure_4.png.
+Also, findings and suggested next steps were added to Jupyter notebook.
+
+![Boxplot of Flipper length by Sex](./docs/images/Figure_4.png)
