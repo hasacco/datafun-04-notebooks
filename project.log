@@ -1,0 +1,35 @@
+2026-06-08 07:58:32 | INFO | EDA | Loading dataset: penguins
+2026-06-08 07:58:32 | INFO | EDA | Loaded: 344 rows, 7 columns
+2026-06-08 07:58:32 | INFO | EDA | Loading dataset: penguins
+2026-06-08 07:58:32 | INFO | EDA | Loaded: 344 rows, 7 columns
+2026-06-08 07:58:32 | INFO | EDA | Loading dataset: penguins
+2026-06-08 07:58:32 | INFO | EDA | Loaded: 344 rows, 7 columns
+2026-06-08 07:58:32 | INFO | EDA | Loading dataset: penguins
+2026-06-08 07:58:32 | INFO | EDA | Loaded: 344 rows, 7 columns
+2026-06-08 07:58:32 | INFO | EDA | Creating cleaned view for EDA (dropping rows with key missing values)
+2026-06-08 07:58:32 | DEBUG | EDA | Columns required to be non-missing: ['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g', 'species']
+2026-06-08 07:58:32 | INFO | EDA | Original rows: 344
+2026-06-08 07:58:32 | INFO | EDA | Clean rows:    342
+2026-06-08 07:58:32 | INFO | EDA | Rows dropped:  2
+2026-06-08 07:58:32 | INFO | EDA | Computing correlation matrix for numeric columns
+2026-06-08 07:58:32 | INFO | EDA | 
+Correlation matrix:
+2026-06-08 07:58:32 | DEBUG | EDA | 
+                   bill_length_mm  bill_depth_mm  flipper_length_mm  body_mass_g
+bill_length_mm           1.000000      -0.235053           0.656181     0.595110
+bill_depth_mm           -0.235053       1.000000          -0.583851    -0.471916
+flipper_length_mm        0.656181      -0.583851           1.000000     0.871202
+body_mass_g              0.595110      -0.471916           0.871202     1.000000
+2026-06-08 07:58:32 | INFO | EDA | ---------Visualize Correlation Matrix as a Heatmap---------------
+2026-06-08 07:58:32 | INFO | EDA | 
+CUSTOM: Update these notes and use Markdown cells to narrate and tell the story as you explore. For example:
+
+Interpretation:
+
+ - Values close to 1 (dark red) = strong positive correlation (both increase together)
+ - Values close to -1 (dark blue) = strong negative correlation (one increases, other decreases)
+ - Values close to 0 (white) = little or no linear relationship
+ - The diagonal is always 1 (each variable correlates perfectly with itself)
+
+From this heatmap, we can see that flipper_length_mm and body_mass_g show strong positive correlation (~0.87).
+
