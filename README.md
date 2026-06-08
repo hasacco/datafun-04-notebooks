@@ -17,60 +17,6 @@ and pushing work to a shared repository.
 Each project follows the structure of professional Python projects.
 We learn by doing.
 
-## This Project
-
-This project introduces **Exploratory Data Analysis (EDA)** using Jupyter notebooks.
-
-When we encounter a new dataset, we want to explore quickly:
-run checks, view distributions, identify missing values or outliers.
-Notebooks combine Markdown narrative with Python code cells and are ideal for this kind of investigation.
-
-You will run the example notebook, read the code and narrative,
-and create your own notebook to explore a different tabular dataset.
-
-## Working Files
-
-You'll work with just these areas:
-
-- **docs/** - the project narrative and documentation
-- **src/datafun** - supporting Python module
-- **notebooks/** - where the analysis happens
-- **pyproject.toml** - update authorship & links
-- **zensical.toml** - update authorship & links
-
-## Instructions (pro-analytics-02)
-
-Follow the
-[step-by-step workflow guide](https://denisecase.github.io/pro-analytics-02/workflow-b-apply-example-project/)
-to complete:
-
-1. Phase 1. **Start & Run**
-2. Phase 2. **Change Authorship**
-3. Phase 3. **Read & Understand**
-4. Phase 4. **Modify**
-5. Phase 5. **Apply**
-
-## Challenges
-
-Challenges are expected.
-Sometimes instructions may not quite match your operating system.
-When issues occur, share screenshots, error messages, and details about what you tried.
-Working through issues is part of implementing professional projects.
-
-## Success
-
-After completing Phase 1. **Start & Run**, you'll have your own GitHub project,
-with the example notebook executed and committed,
-and running the example script will print out:
-
-```shell
-========================
-Executed successfully!
-========================
-```
-
-A new file `project.log` will appear in the root project folder.
-
 ## Command Reference
 
 The commands below are used in the workflow guide above.
@@ -115,6 +61,8 @@ uvx pre-commit run --all-files
 
 # run the module to verify the environment (.venv)
 uv run python -m datafun.app_case
+uv run python -m datafun.app_hasacco
+uv run python -m datafun.app_hasacco_titanic
 
 # do chores
 uv run ruff format .
@@ -146,53 +94,62 @@ You accidentally started Python interactive mode.
 It happens.
 Press `Ctrl+c` (both keys together) or `Ctrl+Z` then `Enter` on Windows.
 
-## Example Output (Can Remove this Section after You Verify)
-
-```shell
-| INFO | EDA | --- Section 9: Summary and next steps ---
-| INFO | EDA | ========================
-| INFO | EDA | SUMMARY
-| INFO | EDA | ========================
-| INFO | EDA | Dataset: penguins
-| INFO | EDA | Original rows: 344
-| INFO | EDA | Clean rows:    342
-| INFO | EDA | Groups found in species: ['Adelie', 'Chinstrap', 'Gentoo']
-| INFO | EDA | Strongest correlation:
-| INFO | EDA |   flipper_length_mm and body_mass_g (~0.87)
-| INFO | EDA | Suggested next step:
-| INFO | EDA |   Model body_mass_g ~ flipper_length_mm with linear regression
-| INFO | EDA | ----- in a script, call plt.show() once at the end to display all charts -----
-| INFO | EDA | EDA workflow complete
-| INFO | EDA | IMPORTANT: This script creates chart windows.
-| INFO | EDA | Close any chart windows and terminate this process with CTRL+c as needed.
-| INFO | EDA | ========================
-| INFO | EDA | Executed successfully!
-| INFO | EDA | ========================
-```
-
-## Findings and Visuals
-
-Take screenshots of your charts and provide them here with a discussion.
-In Markdown, display a figure by using:
-an exclamation mark immediately followed by square brackets containing a useful caption
-immediately followed by parentheses containing the relative path to your figure.
-Note: When you start typing the path with a dot (.) for "here, in this directory",
-the IDE may help complete the path.
-
-Follow this example, but the figures should
-reflect your work and include your narrative.
-Remove unnecessary instructional comments in your final version of this README.md.
-
-![Correlation Heatmap](./docs/images/Figure_1.png)
-
-![Provide a Useful Caption](./docs/images/Figure_2.png)
-
-![Provide a Useful Caption](./docs/images/Figure_3.png)
 
 ## Technical Modification 6-8-26
 
 A box plot of flipper length vs sex was added to notebook eda_hasacco.ipynb and app_hasacco.py.
-Box plot was saved in docs/ as Figure_4.png.
+Boxplot was saved in docs/ as Figure_4.png.
 Also, findings and suggested next steps were added to Jupyter notebook.
 
 ![Boxplot of Flipper length by Sex](./docs/images/Figure_4.png)
+
+## New Application - Titanic Dataset 6-8-26
+
+New files: eda_hasacco_titanic.ipynb and app_hasacco_titanic.py
+
+The penguins dataset was replaced by the Titanic dataset available in Seaborn.
+The basic workflow of the notebook and .py file was kept the same, only updating required columns and variable names.
+Different graphs/charts were used in this application, including a scatterplot, boxplot, clustered bar chart, and overlapping density plot.
+Findings and suggested next steps were added as Markdown to Jupyter notebook and as comments to .py file.
+
+## Example Output
+
+```shell
+2026-06-08 15:16:56 | INFO | EDA | --- Section 9: Summary and next steps ---
+2026-06-08 15:16:56 | INFO | EDA | ========================
+2026-06-08 15:16:56 | INFO | EDA | See .py file or notebook for summary of findings and suggested next steps.
+2026-06-08 15:16:56 | INFO | EDA | ========================
+2026-06-08 15:16:56 | INFO | EDA | -----  close the chart windows (with the close button) to continue  -----
+2026-06-08 15:16:56 | INFO | EDA | ========================
+2026-06-08 15:16:56 | INFO | EDA | EDA workflow complete
+2026-06-08 15:16:56 | INFO | EDA | IMPORTANT: This script creates chart windows.
+2026-06-08 15:16:56 | INFO | EDA | Close any chart windows and terminate this process with CTRL+c as needed.
+2026-06-08 15:16:56 | INFO | EDA | ========================
+2026-06-08 15:16:56 | INFO | EDA | Executed successfully!
+2026-06-08 15:16:56 | INFO | EDA | ========================
+```
+
+## Findings and Visuals
+
+Findings:
+This dataset that is publicly available from Seaborn contains 891 rows and 15 columns. After cleaning the dataset based on required columns of sex, survival status, ticket class, age, number of siblings/spouses aboard, and number of parents/children aboard, there were 714 clean rows of data.
+After EDA, the following was noted:
+  - The average age of passengers was 29.7 years, with males tending to be slightly older than females (~2.8 years).
+  - Females had a significantly higher average survival rate than that of males.
+  - Females traveled with companions more than males.
+  - In the 20 - 40 year age band, there appears to be significantly more deaths vs survivals when comparing to other age bands.
+
+Suggested next steps:
+  - Comparison of travel with companions to survival rates (Does this correlate to females' higher survival rates?)
+  - Comparison of sexes in 20 - 40 year age band for survival rates (Do male vs female rates match that of entire data set?)
+  - Analysis of travel with companions in 20 - 40 year age band (Does this match findings in first suggested next step?)
+
+![Correlation Heatmap](./docs/images/Figure_1_Titanic.png)
+
+![Scatterplot - Age vs Fare](./docs/images/Figure_2_Titanic.png)
+
+![Boxplot - Age by Sex](./docs/images/Figure_3_Titanic.png)
+
+![Clustered Bar Chart - Survival Status by Sex](./docs/images/Figure_4_Titanic.png)
+
+![Overlapping Density Plot - Survival Distribution by Age](./docs/images/Figure_5_Titanic.png)
