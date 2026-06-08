@@ -88,7 +88,7 @@ open a machine terminal in your `Repos` folder:
 
 ```shell
 # Replace username with YOUR GitHub username.
-git clone https://github.com/username/datafun-04-notebooks
+git clone https://github.com/hasacco/datafun-04-notebooks
 
 cd datafun-04-notebooks
 code .
